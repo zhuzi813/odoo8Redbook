@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<menuitem id = "menu_rb_main" name = "Red Book" sequence = "210" />
+		<menuitem id = "menu_rb_config" name = "Settings" parent = "menu_rb_main" />
+		<menuitem id = "menu_rb_ex_rate" 
+			name = "Exchange Rate" 
+			parent = "menu_rb_config" 
+			action = "act_list_rb_ex_rate" />
+		<!-- <menuitem id = "menu_rb_ex_rate" name = "Exchange Rate" parent = "menu_rb_main" />	-->
+		<!--
+		<menuitem id = "menu_rb_shop_cfg" 
+			name = "Shops" 
+			parent = "menu_rb_config" 
+			action = "act_list_rb_shop_cfg" />
+		-->
+
+		<menuitem id = "menu_rb_courier" name = "Courier" sequence = "50" parent = "menu_rb_main" />
+		<menuitem id = "menu_rb_couriers" 
+			name = "Couriers" 
+			parent = "menu_rb_courier" 
+			action = "act_list_rb_courier" />
+		<menuitem id = "menu_rb_shop" name = "Shop" sequence = "100" parent = "menu_rb_main" />
+		<menuitem id = "menu_rb_shops" 
+			name = "Shops" 
+			parent = "menu_rb_shop" 
+			action = "act_list_rb_shop" />
+		<menuitem id = "menu_rb_order" name = "Order" sequence = "200" parent = "menu_rb_main" />
+		<menuitem id = "menu_rb_orders" 
+			name = "Orders" 
+			parent = "menu_rb_order"
+			action = "act_list_rb_order" />
+
+		<menuitem id = "menu_rb_cfg" 
+			name = "Red Book Settings" 
+			parent = "base.menu_config" 
+			action = "act_rb_config" />
+
+	</data>
+</openerp>
+

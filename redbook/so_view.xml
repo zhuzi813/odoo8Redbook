@@ -1,0 +1,20 @@
+<openerp>
+    <data>
+        <record id = "view_so_redbook_property_form" model="ir.ui.view">
+            <field name="name">sale.order.redbook.property.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Other Information']" position="before">
+                    <page name="so_redbook_property" string="Red Book Info">   
+                        <group>
+                           <field name="rb_courier_id" />
+                           <field name="rb_courier_no" />
+                        </group>
+                    </page>
+                       
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

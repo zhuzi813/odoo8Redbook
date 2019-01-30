@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record model = "ir.ui.view" id = "view_rb_config">
+			<field name = "name">Red Book Configuration</field>
+			<field name = "model">redbook.config</field>
+			<field name = "arch" type = "xml">
+				<form string = "Red Book Configuration" class = "oe_form_configuration">
+					<header>
+						<button string = "Save" 
+							type = "object" 
+							name = "execute" 
+							class = "oe_hightlight" />
+						or	
+						<button string = "Cancel"
+							type = "object"
+							name = "cancel"
+							class = "oe_link" />
+					</header>
+					<group string = "Open Exchange">
+						<label for = "id" string = "Open Exchange" />
+						<div>
+							<div>
+								<label for = "open_exchange_url" />
+								<field name = "open_exchange_url" />
+							</div>
+							<div>
+								<label for = "open_exchange_base" />
+								<field name = "open_exchange_base" />
+							</div>
+							<div>
+								<label for = "open_exchange_app_id" />
+								<field name = "open_exchange_app_id" />
+							</div>
+						</div>
+					</group>
+				</form>
+			</field>	
+		</record>
+
+		<record id = "act_rb_config" model = "ir.actions.act_window">
+			<field name = "name">Red Book Configuration</field>
+			<field name = "res_model">redbook.config</field>
+			<field name = "view_id" ref = "view_rb_config" />
+			<field name = "view_mode">form</field>
+			<field name = "target">inline</field> 
+		</record>
+
+		<record model = "ir.ui.view" id = "view_list_rb_ex_rate">
+			<field name = "name">rb.ex_rate.tree</field>
+			<field name = "model">redbook.ex_rate</field>
+			<field name = "type">tree</field>
+			<field name = "arch" type = "xml">
+				<tree string = "Exchange Rate" toolbar = "1">
+					<field name = "source" />
+					<field name = "base" />
+					<field name = "target" />
+					<field name = "b2s" />
+					<field name = "b2t" />
+					<field name = "s2t" />
+					<field name = "manual" />
+					<field name = "write_date" string = "Update Time" />
+				</tree>
+			</field>
+		</record>
+		<record model = "ir.ui.view" id = "view_form_rb_ex_rate">
+			<field name = "name">rb.ex_rate.form</field>
+			<field name = "model">redbook.ex_rate</field>
+			<field name = "type">form</field>
+			<field name = "arch" type = "xml">
+				<form string = "Exchange Rate" toolbar = "1">
+					<group>
+						<field name = "source" />
+						<field name = "base" />
+						<field name = "target" />
+						<field name = "b2s" />
+						<field name = "b2t" />
+						<field name = "s2t" />
+						<field name = "manual" />
+						<field name = "write_date" string = "Update Time" />
+					</group>
+					<group>
+						<button string = "Online Update" 
+							type = "object" 
+							name = "online_update" 
+							class = "oe_hightlight" />
+						
+						<button string = "Manual Update" 
+							type = "object" 
+							name = "manual_update" 
+							class = "oe_hightlight" />
+						
+						
+
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<record  model = "ir.actions.act_window" id = "act_list_rb_ex_rate">
+			<field name = "name">Red Book Exchange Rate</field>
+			<field name = "res_model">redbook.ex_rate</field>
+			<field name = "view_type">form</field>
+			<field name = "view_mode">tree,form</field>
+			
+		</record>
+
+		<record model = "ir.actions.act_window" id = "act_list_rb_order">
+			<field name = "name">Red Book Orders</field>
+			<field name = "res_model">redbook.order</field>
+			<field name = "viem_type">form</field>
+			<field name ="view_mode">tree,form</field>
+		</record> 
+
+		<record model = "ir.actions.act_window" id = "act_list_rb_shop">
+			<field name = "name">Red Book Shops</field>
+			<field name = "res_model">redbook.shop</field>
+			<field name = "viem_type">form</field>
+			<field name ="view_mode">tree,form</field>
+		</record>
+		
+		<record model = "ir.actions.act_window" id = "act_list_rb_courier">
+			<field name = "name">Red Book Courier</field>
+			<field name = "res_model">redbook.courier_company</field>
+			<field name = "viem_type">form</field>
+			<field name ="view_mode">tree,form</field>
+		</record>
+		
+		<record model = "ir.ui.view" id = "view_list_rb_courier">
+			<field name = "name">rb.courier.tree</field>
+			<field name = "model">redbook.courier_company</field>
+			<field name = "type">tree</field>
+			<field name = "arch" type = "xml">
+				<tree string = "Red Book Courier Companies" toolbar = "1">
+					<field name = "name" string = "Name" />		
+					<field name = "code" string = "Code" />		
+				</tree>
+			</field>
+		</record>
+		
+			<record model = "ir.ui.view" id = "view_form_rb_courier">
+			<field name = "name">rb.courier.form</field>
+			<field name = "model">redbook.courier_company</field>
+			<field name = "type">form</field>
+			<field name = "arch" type = "xml">
+				<form string = "Red Book Courier Companies" toolbar = "1">
+    				<group colspan = "2" col = "4">
+					    <field name = "name" string = "Name" />	
+                        <field name = "code" string = "Code" />	
+                    </group>
+				</form>
+			</field>
+		</record>
+
+		<record model = "ir.ui.view" id = "view_form_rb_order">
+			<field name = "name">rb.order.form</field>
+			<field name = "model">redbook.order</field>
+			<field name = "type">form</field>
+			<field name = "arch" type = "xml">
+				<form string = "Red Book Order">
+					<group colspan = "2" col = "4">
+						<field name = "name" string = "Name" />
+						<field name = "rb_shop_id" string = "Shop" />
+						<field name = "rb_shop_package_id" string = "Red BooK Order ID" />
+						<field name = "partner" string = "Partner" />
+						<field name = "exchange_rate" string = "CNY to EURO" />
+						<newline />
+						<field name = "ship_name" />
+						<field name = "ship_id_number" />
+						<field name = "ship_address1" />
+						<field name = "ship_address2" />
+						<field name = "ship_district" />
+						<field name = "ship_city" />
+						<field name = "ship_province" />
+						<field name = "ship_zip" />
+						<field name = "rb_courier_company_id" attrs = "{'readonly':[('rb_courier_upload', '=', True)]}" />
+						<field name = "rb_courier_no" attrs = "{'readonly':[('rb_courier_upload', '=', True)]}" />
+						<newline />
+						<field name = "valid" string = "EANs Valid?" readonly = "1" />
+						
+						<button string= "Valid" type = "object" name = "valid_ean" class = "oe_hightlight" />
+						<newline />
+						<field name = "converted" string = "Converted to SO?" readonly = "1" />
+						<field name = "so_id" string = "Sale Order:" />
+						<button string = "Convert to SO" 
+							type = "object" 
+							name = "convert_so" 
+							class = "oe_hightlight"
+						    attrs = "{'invisible':['|', ('valid','=',False), ('converted', '=', True)]}"	/>
+						<newline />    
+                        <field name = "rb_courier_upload" attrs = "{'readonly':[('rb_courier_upload', '=', True)]}"/>    
+                        <button string = "Update Courier Info" 
+							type = "object" 
+							name = "update_courier_info" 
+							class = "oe_hightlight"
+						    attrs = "{'invisible':['|', '|', ('valid','=',False), ('converted', '!=', True), ('rb_courier_upload', '=', True)]}"	/>    
+					</group>
+					<group>
+						<notebook>
+							<page string = "Order Lines">
+								<field name = "orderlines" 
+									widget = "one2many_list"
+									nolabel = "1"
+								    readonly = "0" />
+							</page>
+						</notebook>
+					</group>
+				</form>
+
+			</field>
+		</record>
+		
+		<record model = "ir.ui.view" id = "view_list_rb_orderline">
+			<field name = "name">rb.orderline.tree</field>
+			<field name = "model">redbook.orderline</field>
+			<field name = "type">tree</field>
+			<field name = "arch" type = "xml">
+				<tree string = "red Book Order Line" create = "false" >
+					<field name = "name" string = "Name" />
+					<field name = "EAN" string = "EAN" />
+					<field name = "product_id" string = "Product" />
+					<field name = "order_id" string = "Order" readonly = "1" />
+					
+					<field name = "qty" string = "Quantity" readonly = "1" />
+					<field name = "rb_price" string ="Red Book Price" readonly = "1" />
+					<field name = "exchange_rate" string = "Exchange Rate" />
+					<field name = "price" string = "Price" />	
+				</tree>
+			</field>
+		</record>
+
+		<record model = "ir.ui.view" id = "view_form_rb_orderline">
+			<field name = "name">rb.orderline.form</field>
+			<field name = "model">redbook.orderline</field>
+			<field name = "type">form</field>
+			<field name = "arch" type = "xml">
+				<form string = "Red book Order Line" editable = "true" >
+					<group colspan = "2" col = "4" string = "red Book Order Line">
+						<field name = "name" string ="Name" />
+						<field name = "order_id" string = "Order" readonly = "1" />
+						<field name = "EAN" string = "EAN" />
+						<field name = "product_id" string = "Product" />
+						<field name = "description" string = "Description" />
+						<field name = "qty" string = "Quantity" readonly = "1" />
+						<field name = "rb_price" string ="Red Book Price" readonly = "1" />
+						<field name = "exchange_rate" string = "Exchange Rate" />
+						<field name = "price" string = "Price" />	
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+
+
+		<record model = "ir.ui.view" id = "view_list_rb_order">
+			<field name = "name">rb.order.tree</field>
+			<field name = "model">redbook.order</field>
+			<field name = "type">tree</field>
+			<field name = "arch" type = "xml">
+				<tree string = "Red Book Order" toolbar = "1" create = "false">
+					<field name = "name" string = "Name" />
+					<field name = "partner" string = "Partner" />
+					<field name = "rb_shop_id" string = "SHOP" />
+					<field name = "rb_shop_package_id" string = "Red BooK Order ID" />
+					<field name = "so_id" string = "Sales Order" />
+					<field name = "exchange_rate" string = "CNY to EURO" />
+					<field name = "converted" string = "Converted to SO" />
+					<field name = "rb_courier_upload" string = "Courier Upload" />
+					<field name = "rb_courier_company_id" string = "Courier" />
+					<field name = "rb_courier_no" string = "Courier No" />
+				</tree>
+			</field>
+		</record>
+
+		<record model = "ir.ui.view" id = "view_list_rb_shop_cfg">
+			<field name = "name">rb.shop_cfg.tree</field>
+			<field name = "model">redbook.shop</field>
+			<field name = "type">tree</field>
+			<field name = "arch" type = "xml">
+				<tree string = "Red Book Shops" toolbar = "1">
+					<field name = "name" string = "Name" />
+					<field name = "alias" string = "Alias" />
+					<field name = "shop_active" string = "Active" />
+					<field name = "partner" string = "Shop Partner" />
+					<field name = "default_tax_id" />
+					<field name = "last_import_time" string = "Last Import Time" />
+					
+				</tree>
+			</field>
+		</record>
+
+		<record model = "ir.ui.view" id = "view_form_rb_shop_cfg">
+			<field name = "name">rb.shop_cfg.form</field>
+			<field name = "model">redbook.shop</field>
+			<field name = "type">form</field>
+			<field name = "arch" type = "xml">
+				<form string = "Red Book Shop Config" version="7.0">
+					<group >
+						<group>
+							<field name = "name" string = "Name" />
+							<field name = "alias" string = "Alias" />
+							
+						</group>
+						<group>
+							<field name = "partner" string = "Shop Partner" />
+							<field name = "shop_active" string = "Active" />
+							<field name = "invoice_address_id" string = "Invoice Address" />
+							<field name = "country_id" string = "Country" />
+						</group>
+					</group>
+					<group>
+						<field name = "app_url" string = "Shop URL" />
+						<field name = "app_key" string = "APP Key" />
+						<field name = "app_secret" string = "APP Secret" />
+						<field name = "default_tax_id" />
+						<field name = "warehouse_id" />
+					</group>
+					<group colspan = "2" col = "4">
+						<field name = "last_import_time" string ="Last Import Time" />
+						<field name = "last_import_status" string = "Last Import Status:" readonly = "1" />
+						<button string ="Import Orders" type = "object" name = "import_order" class= "oe_hightlight" /> 	
+
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model = "ir.actions.act_window" id = "act_list_rb_shop_cfg">
+			<field name = "name">Red Book Config</field>
+			<field name = "res_model">redbook.shop</field>
+			<field name = "view_type">form</field>
+			<field name = "view_mode">tree,form</field>
+		</record>		
+		
+		<record model = "ir.actions.server" id = "action_server_rb_order">
+    		<field name = "name">Convert to So</field>
+    		<field name = "condition">True</field>
+    		
+    		<field name="model_id" ref="model_redbook_order"/>
+    		<field name="state">code</field>
+    		<field name="code">
+        		self.convert_so(cr, uid, context.get('active_ids',[]), context=context)
+    		</field>
+		</record>
+		
+		<record model = "ir.values" id = "ir_values_rb_order">
+    		<field name="key">action</field>
+    		<field name="key2">client_action_multi</field>
+    		<field name="model">redbook.order</field>
+    		<field name="name">Call Method 1</field>
+    		<field name = "value" eval = "'ir.actions.server,%d'%action_server_rb_order" />
+		</record>
+		
+		<record model = "ir.actions.server" id = "action_server_rb_courier">
+    		<field name = "name">Upload Courier Info</field>
+    		<field name = "condition">True</field>
+    		
+    		<field name="model_id" ref="model_redbook_order"/>
+    		<field name="state">code</field>
+    		<field name="code">
+        		self.update_courier_info(cr, uid, context.get('active_ids',[]), context=context)
+    		</field>
+		</record>
+		
+		<record model = "ir.values" id = "ir_values_rb_order_courier">
+    		<field name="key">action</field>
+    		<field name="key2">client_action_multi</field>
+    		<field name="model">redbook.order</field>
+    		<field name="name">Call Method 2</field>
+    		<field name = "value" eval = "'ir.actions.server,%d'%action_server_rb_courier" />
+		</record>
+	</data>
+</openerp>
+
